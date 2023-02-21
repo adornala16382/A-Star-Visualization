@@ -24,7 +24,10 @@ def run(screen, path, block_size):
         time.sleep(0.05)
         if path[0] and i < len(path[0]):
             draw_grid(g, block_size, screen, split = isSplit)
-            bg.set_alpha(math.sin(i/2)*255)
+            if(len(path[0]) > len(path[1])):
+                bg.set_alpha(math.sin(i/3)*255)
+            else:
+                bg.set_alpha(math.sin(j/3)*255)
             screen.blit(bg, (0, 0))
             if prev1:
                 pygame.draw.rect(screen, (0, 100, 0), pygame.Rect(prev1[0], prev1[1], block_size-1, block_size-1))
